@@ -1,10 +1,3 @@
-/*!
- * todo - app.js
- * Copyright(c) 2012 fengmk2 <fengmk2@gmail.com>
- * MIT Licensed
- */
-
-"use strict";
 
 /**
  * Module dependencies.
@@ -15,7 +8,7 @@ var connect = require('connect');
 var render = require('connect-render');
 var urlrouter = require('urlrouter');
 var config = require('./config');
-var todo = require('./controllers/todo');
+var bill = require('./controllers/bill');
 
 var app = connect();
 
@@ -37,17 +30,18 @@ app.use(render({
   }
 }));
 
+
 /**
  * Routing
  */
 var router = urlrouter(function (app) {
-  app.get('/', todo.index);
-  app.post('/todo/new', todo.new);
-  app.get('/todo/:id', todo.view);
-  app.get('/todo/:id/edit', todo.edit);
-  app.post('/todo/:id/edit', todo.save);
-  app.get('/todo/:id/delete', todo.delete);
-  app.get('/todo/:id/finish', todo.finish);
+  app.get('/', bill.index);
+  app.post('/bill/new', bill.new);
+  app.get('/bill/:id', bill.view);
+  app.get('/bill/:id/edit', bill.edit);
+  app.post('/bill/:id/edit', bill.save);
+  app.get('/bill/:id/delete', bill.delete);
+  app.get('/bill/:id/finish', bill.finish);
 });
 app.use(router);
 
